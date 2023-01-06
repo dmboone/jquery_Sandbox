@@ -47,11 +47,13 @@ $(function() { // must put jquery inside this line
   // $(".blue-box").delay(2000).fadeTo(1000, 0.8).fadeOut().delay(500).fadeIn();
 
   // TIMING ANIMATIONS USING CALLBACK FUNCTIONS
-  $(".red-box").fadeTo(1000, 0, function(){
-    alert("This is the callback: Animation finished");
-  });
+  // $(".red-box").fadeTo(1000, 0, function(){
+  //   alert("This is the callback: Animation finished");
+  // });
 
-  $(".green-box").delay(3000).fadeTo(1000, 0, function(){
-    $(".blue-box").fadeTo(1000, 0);
-  });
+  // $(".green-box").delay(3000).fadeTo(1000, 0, function(){
+  //   $(".blue-box").fadeTo(1000, 0);
+  // });
+
+  $(".lightbox").delay(500).fadeIn(1000);
 });
