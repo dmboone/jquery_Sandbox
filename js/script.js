@@ -72,4 +72,17 @@ $(function() { // must put jquery inside this line
   // $("li:odd").css("background-color", "rgba(180, 180, 30, 0.8)"); // odd elements of that kind
   // $("input:text").css("background-color", "rgba(180, 180, 30, 0.8)");
   // $("input:password").css("background-color", "rgba(180, 180, 30, 0.8)");
+
+  // $("#list").find("li").css("background-color", "rgba(180, 180, 30, 0.8)"); // all children li that are nested are highlighted
+  // $("#list").children("li").css("background-color", "rgba(180, 180, 30, 0.8)"); // only direct children li are highlighted
+  // $("#list").parents().css("background-color", "rgba(180, 180, 30, 0.8)"); // all parents are highlighted
+  // $("#list").parents("div").css("background-color", "rgba(180, 180, 30, 0.8)"); // can specify which parents
+  // $("#list").parent().css("background-color", "rgba(180, 180, 30, 0.8)"); // just one direct parent
+  // $("#list").siblings().css("background-color", "rgba(180, 180, 30, 0.8)"); // can select all siblings
+  // $("#list").siblings("p").css("background-color", "rgba(180, 180, 30, 0.8)"); // can specify which siblings
+  // $("#list").siblings(":header").css("background-color", "rgba(180, 180, 30, 0.8)"); // choose all header siblings
+  // $("#list").prev().css("background-color", "rgba(180, 180, 30, 0.8)"); // choose previous
+  // $("#list").next().css("background-color", "rgba(180, 180, 30, 0.8)"); // choose next
+
+  
 });
