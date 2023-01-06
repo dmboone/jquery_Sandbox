@@ -25,19 +25,25 @@ $(function() { // must put jquery inside this line
   // $("p").slideDown(1000);
   // $(".blue-box").slideToggle(2000);
 
-  // MOVING
-  $(".blue-box").animate({
-    "margin-left": "+=200px", // this is a css property; will move box to the right 200 pixels
-    "opacity": 0,
-    "height": "50px",
-    "width": "50px",
-    "margin-top": "25px"
-  }, 
-  1000, // this is how long the animation takes
-  "linear"); // can change this to ease in or out, etc.
+  // MOVING AND CUSTOM ANIMATIONS
+  // $(".blue-box").animate({
+  //   "margin-left": "+=200px", // this is a css property; will move box to the right 200 pixels
+  //   "opacity": 0,
+  //   "height": "50px",
+  //   "width": "50px",
+  //   "margin-top": "25px"
+  // }, 
+  // 1000, // this is how long the animation takes
+  // "linear"); // can change this to ease in or out, etc.
 
-  $("p").animate({
-    "font-size": "20px"
-    // note you can change color with animate
-  }, 1000);
+  // $("p").animate({
+  //   "font-size": "20px"
+  //   // note you can change color with animate
+  // }, 1000);
+
+  // DELAYING AND CHAINING ANIMATIONS
+  $(".red-box").fadeTo(1000, 0.2);
+  $(".green-box").delay(1000).fadeTo(1000, 0.5);
+  $(".blue-box").delay(2000).fadeTo(1000, 0.8).fadeOut().delay(500).fadeIn();
+
 });
