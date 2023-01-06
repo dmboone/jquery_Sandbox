@@ -42,8 +42,16 @@ $(function() { // must put jquery inside this line
   // }, 1000);
 
   // DELAYING AND CHAINING ANIMATIONS
-  $(".red-box").fadeTo(1000, 0.2);
-  $(".green-box").delay(1000).fadeTo(1000, 0.5);
-  $(".blue-box").delay(2000).fadeTo(1000, 0.8).fadeOut().delay(500).fadeIn();
+  // $(".red-box").fadeTo(1000, 0.2);
+  // $(".green-box").delay(1000).fadeTo(1000, 0.5);
+  // $(".blue-box").delay(2000).fadeTo(1000, 0.8).fadeOut().delay(500).fadeIn();
 
+  // TIMING ANIMATIONS USING CALLBACK FUNCTIONS
+  $(".red-box").fadeTo(1000, 0, function(){
+    alert("This is the callback: Animation finished");
+  });
+
+  $(".green-box").delay(3000).fadeTo(1000, 0, function(){
+    $(".blue-box").fadeTo(1000, 0);
+  });
 });
