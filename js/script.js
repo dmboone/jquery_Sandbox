@@ -55,5 +55,21 @@ $(function() { // must put jquery inside this line
   //   $(".blue-box").fadeTo(1000, 0);
   // });
 
-  $(".lightbox").delay(500).fadeIn(1000);
+  // CREATING A SIGNUP LIGHTBOX
+  // $(".lightbox").delay(500).fadeIn(1000);
+
+  // ELEMENT SELECTORS
+
+  // USING CSS SELECTORS IN JQUERY
+  // $("p").css("background-color", "rgba(180, 180, 30, 0.8)"); // select by element type
+  // $(".red-box").css("background-color", "rgba(180, 180, 30, 0.8)"); // select by class
+  // $("#list").css("background-color", "rgba(180, 180, 30, 0.8)"); // select by id
+  // $("input[type=text]").css("background-color", "rgba(180, 180, 30, 0.8)"); select by element and type
+  // $("h2, p, input").css("background-color", "rgba(180, 180, 30, 0.8)"); // can select multiple elements types with a comma
+  // $("p:first").css("background-color", "rgba(180, 180, 30, 0.8)"); // first element of that kind
+  // $("li:last").css("background-color", "rgba(180, 180, 30, 0.8)"); // last element of that kind
+  // $("li:even").css("background-color", "rgba(180, 180, 30, 0.8)"); // even elements of that kind
+  // $("li:odd").css("background-color", "rgba(180, 180, 30, 0.8)"); // odd elements of that kind
+  // $("input:text").css("background-color", "rgba(180, 180, 30, 0.8)");
+  // $("input:password").css("background-color", "rgba(180, 180, 30, 0.8)");
 });
