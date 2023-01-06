@@ -100,4 +100,18 @@ $(function() { // must put jquery inside this line
   // $("li").not(function(index){
   //   return index % 3 === 2;
   // }).css("background-color", "rgba(180, 180, 30, 0.8)"); // only main items not sub items
+
+  // MANIPULATING THE DOM I - INSERTING, REPLACING AND REMOVING ELEMENTS
+  // $("ul ul:first").append("<li>I'm gonna be the last sub-item</li>"); // adding another child element at the end
+  // $("<li>I'm gonna be the last sub-item</li>").appendTo($("ul ul:first")); // this does the same as above
+  // $("ul ul").prepend("<li>I'm gonna be the first sub-item</li>"); // adding another child element at the beginning
+  // $("<li>I'm gonna be the last sub-item</li>").prependTo($("ul ul")); // this does the same as above
+  // $("<h4>Destiny Boone</h4>").prependTo($("#content"));
+  // $(".red-box").after("<div class='red-box'>Another Red</div>"); // adds a sibling after the selected element
+  // $(".blue-box").before("<div class='blue-box'>Blue Friend</div>"); // adds a sibling before the selected element
+  // $(".blue-box").before(function(){
+  //   return "<div class='blue-box'>Blue 2</div>";
+  // });
+  // $(".red-box").before($(".blue-box")); // moves an already existing element to before the selected element
+  // $("p").after($("#list")); // will clone once because there are two paragraph elements
 });
