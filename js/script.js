@@ -73,6 +73,7 @@ $(function() { // must put jquery inside this line
   // $("input:text").css("background-color", "rgba(180, 180, 30, 0.8)");
   // $("input:password").css("background-color", "rgba(180, 180, 30, 0.8)");
 
+  // JQUERY METHODS FOR TRAVERSAL
   // $("#list").find("li").css("background-color", "rgba(180, 180, 30, 0.8)"); // all children li that are nested are highlighted
   // $("#list").children("li").css("background-color", "rgba(180, 180, 30, 0.8)"); // only direct children li are highlighted
   // $("#list").parents().css("background-color", "rgba(180, 180, 30, 0.8)"); // all parents are highlighted
@@ -84,5 +85,19 @@ $(function() { // must put jquery inside this line
   // $("#list").prev().css("background-color", "rgba(180, 180, 30, 0.8)"); // choose previous
   // $("#list").next().css("background-color", "rgba(180, 180, 30, 0.8)"); // choose next
 
-  
+  // JQUERY METHODS FOR FILTERING
+  // $("#list").find("li").filter(":even").css("background-color", "rgba(180, 180, 30, 0.8)");
+  // $("#list").children("li").filter(":even").css("background-color", "rgba(180, 180, 30, 0.8)");
+  // $("li").filter(function(index){ // can filter out certain elements based on a function; automatically have access to index
+  //   return index % 3 === 0;
+  // }).css("background-color", "rgba(180, 180, 30, 0.8)");
+  // $("li").first().css("background-color", "rgba(180, 180, 30, 0.8)"); // select first li element
+  // $("li").last().css("background-color", "rgba(180, 180, 30, 0.8)"); // select last li element
+  // $("li").eq(4).css("background-color", "rgba(180, 180, 30, 0.8)"); // eq allows you to select the n-th index element starting at 0
+  // $("li").eq(-2).css("background-color", "rgba(180, 180, 30, 0.8)"); // select 2nd element from back
+  // $("li").not(":first").css("background-color", "rgba(180, 180, 30, 0.8)"); // everything except the first li element
+  // $("li").not("#list ul li").css("background-color", "rgba(180, 180, 30, 0.8)"); // only main items not sub items
+  // $("li").not(function(index){
+  //   return index % 3 === 2;
+  // }).css("background-color", "rgba(180, 180, 30, 0.8)"); // only main items not sub items
 });
