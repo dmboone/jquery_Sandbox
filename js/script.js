@@ -102,6 +102,8 @@ $(function() { // must put jquery inside this line
   // }).css("background-color", "rgba(180, 180, 30, 0.8)"); // only main items not sub items
 
   // MANIPULATING THE DOM I - INSERTING, REPLACING AND REMOVING ELEMENTS
+
+  // ADDING NEW ELEMENTS TO THE DOM
   // $("ul ul:first").append("<li>I'm gonna be the last sub-item</li>"); // adding another child element at the end
   // $("<li>I'm gonna be the last sub-item</li>").appendTo($("ul ul:first")); // this does the same as above
   // $("ul ul").prepend("<li>I'm gonna be the first sub-item</li>"); // adding another child element at the beginning
@@ -114,4 +116,15 @@ $(function() { // must put jquery inside this line
   // });
   // $(".red-box").before($(".blue-box")); // moves an already existing element to before the selected element
   // $("p").after($("#list")); // will clone once because there are two paragraph elements
+
+  // REPLACING ELEMENTS AND CONTENT
+  // $("li").replaceWith("<li>Replaced.</li>"); // replaces all parent li elements
+  // $("li").replaceWith(function(){ // does the same but with a function
+  //   return "<li>Replaced with function.</li>"
+  // });
+  // let firstListItem = $("li:first");
+  // $("p").replaceWith(firstListItem);
+  // $(".red-box, .blue-box").replaceWith("<div class='green-box'>More Green</div>"); // replacing red and blue boxes with a green box
+  // $("<div class='green-box'>More Green</div>").replaceAll(".red-box, .blue-box"); // does the same as above
+  
 });
