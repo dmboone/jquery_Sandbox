@@ -27,8 +27,17 @@ $(function() { // must put jquery inside this line
 
   // MOVING
   $(".blue-box").animate({
-    "margin-left": "+=200px" // this is a css property; will move box to the right 200 pixels
+    "margin-left": "+=200px", // this is a css property; will move box to the right 200 pixels
+    "opacity": 0,
+    "height": "50px",
+    "width": "50px",
+    "margin-top": "25px"
   }, 
   1000, // this is how long the animation takes
   "linear"); // can change this to ease in or out, etc.
+
+  $("p").animate({
+    "font-size": "20px"
+    // note you can change color with animate
+  }, 1000);
 });
