@@ -8,9 +8,15 @@ $(function() { // must put jquery inside this line
   // $(".red-box").fadeTo(1000, 0.5);
   // $(".blue-box").fadeToggle(); // toggles between fade in or fade out
 
-  $(".blue-box").hide(); // hides elements
-  $(".blue-box").show(); // shows elements
-  $(".blue-box").toggle(); // toggles between show and hide
-  $(".blue-box").hide(1000); // hides over a set time
-  $(".blue-box").show(2000); // shows over a set time
+  // $(".blue-box").hide(); // hides elements
+  // $(".blue-box").show(); // shows elements
+  // $(".blue-box").toggle(); // toggles between show and hide
+  // $(".blue-box").hide(1000); // hides over a set time
+  // $(".blue-box").show(2000); // shows over a set time
+
+  $(".blue-box").slideUp(2000); // will also set display property to none
+  $(".blue-box").slideDown(2000);
+  $("p").hide();
+  $("p").slideDown(1000);
+  $(".blue-box").slideToggle(2000);
 });
