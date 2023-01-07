@@ -126,5 +126,14 @@ $(function() { // must put jquery inside this line
   // $("p").replaceWith(firstListItem);
   // $(".red-box, .blue-box").replaceWith("<div class='green-box'>More Green</div>"); // replacing red and blue boxes with a green box
   // $("<div class='green-box'>More Green</div>").replaceAll(".red-box, .blue-box"); // does the same as above
-  
+
+  // REMOVING ELEMENTS AND CONTENT
+  // $("li").remove();
+  // $("form").children().not("textarea, input:text, br").remove();
+
+  // let detachedListItem = $("li").detach(); // can remove elements and store them in variable using detach
+  // $("#content").append(detachedListItem);
+
+  // $("p:first").empty(); // removes the text and any other elements inside of a selected element, but the tag remains
+  // $(".red-box, .green-box, .blue-box").empty();
 });
