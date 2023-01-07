@@ -136,4 +136,25 @@ $(function() { // must put jquery inside this line
 
   // $("p:first").empty(); // removes the text and any other elements inside of a selected element, but the tag remains
   // $(".red-box, .green-box, .blue-box").empty();
+
+  // MANIPULATING ATTRIBUTES AND PROPERTIES
+  // attr(), prop(), val()
+  // note that these will always work with the first element of that type that is found
+  // let specialLink = $("#special-link");
+  // console.log(specialLink.attr("href")); // access the value of the href attribute
+  // console.log(specialLink.attr("title")); // no title attribute so this would print undefined
+
+  // specialLink.attr("href", "http://destinyboone.com"); // can also change attribute value
+
+  // let checkbox = $("input:checkbox");
+  // console.log(checkbox.prop("checked")); // use prop for current boolean property value
+
+  // let textInput = $("input:text");
+  // textInput.val("Destiny Boone")
+  // console.log(textInput.val()); // use val to access the values of input elements
+
+  // let rangeInput = $("input[type='range']");
+  // console.log(rangeInput.val());
+
+  
 });
