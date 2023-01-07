@@ -156,5 +156,23 @@ $(function() { // must put jquery inside this line
   // let rangeInput = $("input[type='range']");
   // console.log(rangeInput.val());
 
-  
+  // CREATING AN IMAGE SLIDESHOW
+  let galleryImage = $(".gallery").find("img").first(); // grabs the img element in the gallery
+  let images = [ // stores our image names
+    "images/laptop-mobile_small.jpg",
+    "images/laptop-on-table_small.jpg",
+    "images/people-office-group-team_small.jpg",
+  ];
+
+  let i = 0;
+
+  setInterval(function(){
+    i = (i + 1) % images.length; // creates a sequence of 0, 1, 2, 0, 1, 2 ...
+    galleryImage.fadeOut(function(){ // once the gallery image completes fadeOut, perform this callback function
+      // $(this) refers to galleryImage; we are operating on "this" element
+      $(this).attr("src", images[i]); // changes the src attribute to equal the next image in our sequence
+      $(this).fadeIn(); // fades in the new image
+    });
+    console.log(galleryImage.attr("src"));
+  }, 2000); // runs this slideshow function every 2 seconds
 });
