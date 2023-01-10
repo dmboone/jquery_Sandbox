@@ -157,22 +157,45 @@ $(function() { // must put jquery inside this line
   // console.log(rangeInput.val());
 
   // CREATING AN IMAGE SLIDESHOW
-  let galleryImage = $(".gallery").find("img").first(); // grabs the img element in the gallery
-  let images = [ // stores our image names
-    "images/laptop-mobile_small.jpg",
-    "images/laptop-on-table_small.jpg",
-    "images/people-office-group-team_small.jpg",
-  ];
+  // let galleryImage = $(".gallery").find("img").first(); // grabs the img element in the gallery
+  // let images = [ // stores our image names
+  //   "images/laptop-mobile_small.jpg",
+  //   "images/laptop-on-table_small.jpg",
+  //   "images/people-office-group-team_small.jpg",
+  // ];
 
-  let i = 0;
+  // let i = 0;
 
-  setInterval(function(){
-    i = (i + 1) % images.length; // creates a sequence of 0, 1, 2, 0, 1, 2 ...
-    galleryImage.fadeOut(function(){ // once the gallery image completes fadeOut, perform this callback function
-      // $(this) refers to galleryImage; we are operating on "this" element
-      $(this).attr("src", images[i]); // changes the src attribute to equal the next image in our sequence
-      $(this).fadeIn(); // fades in the new image
-    });
-    console.log(galleryImage.attr("src"));
-  }, 2000); // runs this slideshow function every 2 seconds
+  // setInterval(function(){
+  //   i = (i + 1) % images.length; // creates a sequence of 0, 1, 2, 0, 1, 2 ...
+  //   galleryImage.fadeOut(function(){ // once the gallery image completes fadeOut, perform this callback function
+  //     // $(this) refers to galleryImage; we are operating on "this" element
+  //     $(this).attr("src", images[i]); // changes the src attribute to equal the next image in our sequence
+  //     $(this).fadeIn(); // fades in the new image
+  //   });
+  //   console.log(galleryImage.attr("src"));
+  // }, 2000); // runs this slideshow function every 2 seconds
+
+  // MANIPULATING THE DOM II - CHANGING ELEMENT DATA AND CSS
+
+  // CHANGING THE CSS PROPERTIES OF ELEMENTS
+  // note that jquery will ignore !important
+  $(".gallery").css("display", "none"); // does the same as just calling .hide()
+
+  let redBox = $(".red-box");
+  console.log(redBox.css("width"));
+  console.log(redBox.width()); // returns numerical version that can be used in calculation
+
+  redBox.css("background-color", "#AA7700");
+  $("p").css("font-size", "18px");
+  redBox.css("width", "+=20px");
+
+  let properties = $("p").css(["font-size", "line-height", "color"]);
+  console.log(properties);
+  console.log(properties["font-size"]);
+
+  redBox.css("user-select", "none");
+  redBox.css("user-select", function(){
+    return "none";
+  });
 });
