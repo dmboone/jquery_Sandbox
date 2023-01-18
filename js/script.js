@@ -257,11 +257,31 @@ $(function() { // must put jquery inside this line
   
   // ADDING HOVER HANDLERS
   // :hover
-  $("#btn-hover").hover(function(){
-    alert("button was hovered."); // alerts for both when you enter and leave element
-  });
+  // $("#btn-hover").hover(function(){
+  //   alert("button was hovered."); // alerts for both when you enter and leave element
+  // });
 
-  $(".green-box").hover(function(){
-    $(this).text("I was hovered");
-  });
+  // $(".green-box").hover(function(){
+  //   $(this).text("I was hovered");
+  // });
+
+  // ADDING MOUSEENTER AND MOUSELEAVE HANDLERS
+  let blueBox = $(".blue-box");
+  // blueBox.mouseenter(function(){
+  //   $(this).stop().fadeTo(500, 0.7); // the stop hides whatever animation may currently be running
+  // });
+
+  // blueBox.mouseleave(function(){
+  //   $(this).stop().fadeTo(500, 1);
+  // });
+
+  // hover(handlerIn, handlerOut)
+  blueBox.hover(
+    function(){
+      $(this).stop().fadeTo(500, 0.7);
+    }, 
+    function(){
+      $(this).stop().fadeTo(500, 1);
+    }
+  )
 });
