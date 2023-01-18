@@ -232,12 +232,27 @@ $(function() { // must put jquery inside this line
 
   // RETRIEVING AND CHANGING THE CONTENT OF AN ELEMENT
   // text(), html()
-  let firstPar = $("p:first");
-  console.log(firstPar.text());
-  console.log(firstPar.html());
+  // let firstPar = $("p:first");
+  // console.log(firstPar.text());
+  // console.log(firstPar.html());
 
   // firstPar.text("<strong>Hello</strong> World!"); // will include all html content
   // firstPar.html("<strong>Hello</strong> World!"); // will parse and interpret the html
 
-  firstPar.html(firstPar.html() + " This was just appended.");
+  // firstPar.html(firstPar.html() + " This was just appended.");
+
+  // EVENTS I - HANDLING MOUSE EVENTS & KEYBOARD EVENTS
+  
+  // ADDING CLICK HANDLERS
+  $("#btn-click").click(function(event){
+    console.log(event);
+    alert("Button was clicked.");
+  });
+
+  $(".red-box").click(function(){
+    $(this).fadeTo(500, 0.5);
+  });
+
+  $(".red-box").click(); // can also trigger your own events
+  
 });
