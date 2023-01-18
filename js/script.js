@@ -391,16 +391,38 @@ $(function() { // must put jquery inside this line
   // });
 
   // HANDLING KEYDOWN AND KEYUP EVENTS
-  $("html").keydown(function(event){
-    console.log(event.which); // tells you which key was pressed
+  // $("html").keydown(function(event){
+  //   console.log(event.which); // tells you which key was pressed
+  // });
+
+  // let ARROW_RIGHT = 39;
+  // $("html").keydown(function(event){
+  //   if(event.which == ARROW_RIGHT){
+  //     $(".blue-box").stop().animate({
+  //       marginLeft: "+=10px"
+  //     }, 50)
+  //   }
+  // });
+
+  // EVENTS II - FORMS
+
+  // THE FOCUS AND BLUR EVENTS
+  let inputFields = $("input:text, input:password, textarea");
+  inputFields.focus(function(){
+    $(this).css("box-shadow", "0 0 4px #666");
   });
 
-  let ARROW_RIGHT = 39;
-  $("html").keydown(function(event){
-    if(event.which == ARROW_RIGHT){
-      $(".blue-box").stop().animate({
-        marginLeft: "+=10px"
-      }, 50)
+  inputFields.blur(function(){
+    $(this).css("box-shadow", "none");
+  });
+
+  $("#name").blur(function(){
+    let text = $(this).val();
+    if(text.length < 3){
+      $(this).css("box-shadow", "0 0 4px #811");
+    }
+    else{
+      $(this).css("box-shadow", "0 0 4px #181");
     }
   });
 });
