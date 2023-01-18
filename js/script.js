@@ -287,9 +287,31 @@ $(function() { // must put jquery inside this line
 
   // ADDING THE SAME HANDLER FOR MULTIPLE EVENTS
   // .on("click", function(){ ... })
-  $("html").on("click keydown", function(){
+  // $("html").on("click keydown", function(){
+  //   console.log("Mouse was clicked or key was pressed.");
+  // });
+
+  // let images = [
+  //   "images/laptop-mobile_small.jpg",
+  //   "images/laptop-on-table_small.jpg",
+  //   "images/people-office-group-team_small.jpg",
+  // ];
+
+  // let i = 0;
+
+  // $(".gallery").find("img").on("click", function(){
+  //   i = (i + 1) % images.length;
+  //   $(this).fadeOut(function(){
+  //     $(this).attr("src", images[i]).fadeIn();
+  //   });
+  // });
+
+  // MODULARIZING EVENT HANDLERS (NO MORE INLINE FUNCTIONS)
+  function logEvent(){
     console.log("Mouse was clicked or key was pressed.");
-  });
+  }
+
+  $("html").on("click keydown", logEvent);
 
   let images = [
     "images/laptop-mobile_small.jpg",
@@ -299,10 +321,15 @@ $(function() { // must put jquery inside this line
 
   let i = 0;
 
-  $(".gallery").find("img").on("click", function(){
+  let galleryImage = $(".gallery").find("img");
+
+  galleryImage.on("click", switchImage);
+
+  function switchImage(){
     i = (i + 1) % images.length;
-    $(this).fadeOut(function(){
-      $(this).attr("src", images[i]).fadeIn();
+
+    galleryImage.fadeOut(function(){
+      galleryImage.attr("src", images[i]).fadeIn();
     });
-  });
+  }
 });
