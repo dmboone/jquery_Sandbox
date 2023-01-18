@@ -215,18 +215,29 @@ $(function() { // must put jquery inside this line
   // $(".red-box").removeClass("red-box").addClass("blue-box");
 
   // CHANGING THE DATA OF AN ELEMENT
-  let gallery = $(".gallery");
-  let images = [ // stores our image names
-    "images/laptop-mobile_small.jpg",
-    "images/laptop-on-table_small.jpg",
-    "images/people-office-group-team_small.jpg",
-  ];
-  gallery.data("availableImages", images);
-  console.log(gallery.data("availableImages"));
-  gallery.data("name", "The Awesome Gallery");
-  console.log(gallery.data("availableImages"));
-  console.log(gallery.data());
+  // let gallery = $(".gallery");
+  // let images = [ // stores our image names
+  //   "images/laptop-mobile_small.jpg",
+  //   "images/laptop-on-table_small.jpg",
+  //   "images/people-office-group-team_small.jpg",
+  // ];
+  // gallery.data("availableImages", images);
+  // console.log(gallery.data("availableImages"));
+  // gallery.data("name", "The Awesome Gallery");
+  // console.log(gallery.data("availableImages"));
+  // console.log(gallery.data());
 
+  // let firstPar = $("p:first");
+  // console.log(firstPar.data("mydata"));
+
+  // RETRIEVING AND CHANGING THE CONTENT OF AN ELEMENT
+  // text(), html()
   let firstPar = $("p:first");
-  console.log(firstPar.data("mydata"));
+  console.log(firstPar.text());
+  console.log(firstPar.html());
+
+  // firstPar.text("<strong>Hello</strong> World!"); // will include all html content
+  // firstPar.html("<strong>Hello</strong> World!"); // will parse and interpret the html
+
+  firstPar.html(firstPar.html() + " This was just appended.");
 });
