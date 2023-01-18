@@ -200,17 +200,33 @@ $(function() { // must put jquery inside this line
   // });
 
   // ADDING OR REMOVING CSS CLASSES
-  $("a").addClass("fancy-link"); // class="..."
-  $("p:first").addClass("large emphasize"); // adding multiple classes
-  $("li li").addClass(function(index){
-    $(this).addClass("item-" + index);
-  });
+  // $("a").addClass("fancy-link"); // class="..."
+  // $("p:first").addClass("large emphasize"); // adding multiple classes
+  // $("li li").addClass(function(index){
+  //   $(this).addClass("item-" + index);
+  // });
 
-  $("div").addClass(function(index, currentClass){
-    if(currentClass === "dummy"){
-      return "red-box";
-    }
-  });
+  // $("div").addClass(function(index, currentClass){
+  //   if(currentClass === "dummy"){
+  //     return "red-box";
+  //   }
+  // });
 
-  $(".red-box").removeClass("red-box").addClass("blue-box");
+  // $(".red-box").removeClass("red-box").addClass("blue-box");
+
+  // CHANGING THE DATA OF AN ELEMENT
+  let gallery = $(".gallery");
+  let images = [ // stores our image names
+    "images/laptop-mobile_small.jpg",
+    "images/laptop-on-table_small.jpg",
+    "images/people-office-group-team_small.jpg",
+  ];
+  gallery.data("availableImages", images);
+  console.log(gallery.data("availableImages"));
+  gallery.data("name", "The Awesome Gallery");
+  console.log(gallery.data("availableImages"));
+  console.log(gallery.data());
+
+  let firstPar = $("p:first");
+  console.log(firstPar.data("mydata"));
 });
