@@ -342,13 +342,29 @@ $(function() { // must put jquery inside this line
   // $("#content").append("<p>This is a dynamically added paragraph.</p>");
 
   // Delegated Events - allows us to use parent element to delegate click event to children, including dynamically added elements
-  $("#content").on("click", "p", function(){
-    $(this).slideUp();
-  });
+  // $("#content").on("click", "p", function(){
+  //   $(this).slideUp();
+  // });
   
-  $("#content").append("<p>This is a dynamically added paragraph.</p>");
+  // $("#content").append("<p>This is a dynamically added paragraph.</p>");
 
-  $("body").on("mouseenter", "li", function(){
-    $(this).css("color", "#666");
+  // $("body").on("mouseenter", "li", function(){
+  //   $(this).css("color", "#666");
+  // });
+
+  // PASSING ADDITIONAL DATA TO EVENTS
+  $("#btn-click").click(
+  {
+    user: "Destiny",
+    domain: "destinyboone.com"
+  }, function(event){
+    greetUser(event.data);
   });
+
+  function greetUser(userdata){
+    username = userdata.user || "Anonymous"; // anon is the default value if no data
+    domain = userdata.domain || "example.com";
+
+    alert("Welcome back " + username + " from " + domain + "!");
+  }
 });
