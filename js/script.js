@@ -266,7 +266,7 @@ $(function() { // must put jquery inside this line
   // });
 
   // ADDING MOUSEENTER AND MOUSELEAVE HANDLERS
-  let blueBox = $(".blue-box");
+  // let blueBox = $(".blue-box");
   // blueBox.mouseenter(function(){
   //   $(this).stop().fadeTo(500, 0.7); // the stop hides whatever animation may currently be running
   // });
@@ -276,12 +276,33 @@ $(function() { // must put jquery inside this line
   // });
 
   // hover(handlerIn, handlerOut)
-  blueBox.hover(
-    function(){
-      $(this).stop().fadeTo(500, 0.7);
-    }, 
-    function(){
-      $(this).stop().fadeTo(500, 1);
-    }
-  )
+  // blueBox.hover(
+  //   function(){
+  //     $(this).stop().fadeTo(500, 0.7);
+  //   }, 
+  //   function(){
+  //     $(this).stop().fadeTo(500, 1);
+  //   }
+  // );
+
+  // ADDING THE SAME HANDLER FOR MULTIPLE EVENTS
+  // .on("click", function(){ ... })
+  $("html").on("click keydown", function(){
+    console.log("Mouse was clicked or key was pressed.");
+  });
+
+  let images = [
+    "images/laptop-mobile_small.jpg",
+    "images/laptop-on-table_small.jpg",
+    "images/people-office-group-team_small.jpg",
+  ];
+
+  let i = 0;
+
+  $(".gallery").find("img").on("click", function(){
+    i = (i + 1) % images.length;
+    $(this).fadeOut(function(){
+      $(this).attr("src", images[i]).fadeIn();
+    });
+  });
 });
