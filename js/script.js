@@ -180,22 +180,37 @@ $(function() { // must put jquery inside this line
 
   // CHANGING THE CSS PROPERTIES OF ELEMENTS
   // note that jquery will ignore !important
-  $(".gallery").css("display", "none"); // does the same as just calling .hide()
+  // $(".gallery").css("display", "none"); // does the same as just calling .hide()
 
-  let redBox = $(".red-box");
-  console.log(redBox.css("width"));
-  console.log(redBox.width()); // returns numerical version that can be used in calculation
+  // let redBox = $(".red-box");
+  // console.log(redBox.css("width"));
+  // console.log(redBox.width()); // returns numerical version that can be used in calculation
 
-  redBox.css("background-color", "#AA7700");
-  $("p").css("font-size", "18px");
-  redBox.css("width", "+=20px");
+  // redBox.css("background-color", "#AA7700");
+  // $("p").css("font-size", "18px");
+  // redBox.css("width", "+=20px");
 
-  let properties = $("p").css(["font-size", "line-height", "color"]);
-  console.log(properties);
-  console.log(properties["font-size"]);
+  // let properties = $("p").css(["font-size", "line-height", "color"]);
+  // console.log(properties);
+  // console.log(properties["font-size"]);
 
-  redBox.css("user-select", "none");
-  redBox.css("user-select", function(){
-    return "none";
+  // redBox.css("user-select", "none");
+  // redBox.css("user-select", function(){
+  //   return "none";
+  // });
+
+  // ADDING OR REMOVING CSS CLASSES
+  $("a").addClass("fancy-link"); // class="..."
+  $("p:first").addClass("large emphasize"); // adding multiple classes
+  $("li li").addClass(function(index){
+    $(this).addClass("item-" + index);
   });
+
+  $("div").addClass(function(index, currentClass){
+    if(currentClass === "dummy"){
+      return "red-box";
+    }
+  });
+
+  $(".red-box").removeClass("red-box").addClass("blue-box");
 });
