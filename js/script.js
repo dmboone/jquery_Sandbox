@@ -307,29 +307,48 @@ $(function() { // must put jquery inside this line
   // });
 
   // MODULARIZING EVENT HANDLERS (NO MORE INLINE FUNCTIONS)
-  function logEvent(){
-    console.log("Mouse was clicked or key was pressed.");
-  }
+  // function logEvent(){
+  //   console.log("Mouse was clicked or key was pressed.");
+  // }
 
-  $("html").on("click keydown", logEvent);
+  // $("html").on("click keydown", logEvent);
 
-  let images = [
-    "images/laptop-mobile_small.jpg",
-    "images/laptop-on-table_small.jpg",
-    "images/people-office-group-team_small.jpg",
-  ];
+  // let images = [
+  //   "images/laptop-mobile_small.jpg",
+  //   "images/laptop-on-table_small.jpg",
+  //   "images/people-office-group-team_small.jpg",
+  // ];
 
-  let i = 0;
+  // let i = 0;
 
-  let galleryImage = $(".gallery").find("img");
+  // let galleryImage = $(".gallery").find("img");
 
-  galleryImage.on("click", switchImage);
+  // galleryImage.on("click", switchImage);
 
-  function switchImage(){
-    i = (i + 1) % images.length;
+  // function switchImage(){
+  //   i = (i + 1) % images.length;
 
-    galleryImage.fadeOut(function(){
-      galleryImage.attr("src", images[i]).fadeIn();
-    });
-  }
+  //   galleryImage.fadeOut(function(){
+  //     galleryImage.attr("src", images[i]).fadeIn();
+  //   });
+  // }
+
+  // DELEGATED EVENTS
+  // $("p").click(function(){
+  //   $(this).slideUp();
+  // });
+
+  // This dynamically added element will not be affected by the event handler
+  // $("#content").append("<p>This is a dynamically added paragraph.</p>");
+
+  // Delegated Events - allows us to use parent element to delegate click event to children, including dynamically added elements
+  $("#content").on("click", "p", function(){
+    $(this).slideUp();
+  });
+  
+  $("#content").append("<p>This is a dynamically added paragraph.</p>");
+
+  $("body").on("mouseenter", "li", function(){
+    $(this).css("color", "#666");
+  });
 });
