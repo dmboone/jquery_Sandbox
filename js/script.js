@@ -244,15 +244,24 @@ $(function() { // must put jquery inside this line
   // EVENTS I - HANDLING MOUSE EVENTS & KEYBOARD EVENTS
   
   // ADDING CLICK HANDLERS
-  $("#btn-click").click(function(event){
-    console.log(event);
-    alert("Button was clicked.");
-  });
+  // $("#btn-click").click(function(event){
+  //   console.log(event);
+  //   alert("Button was clicked.");
+  // });
 
-  $(".red-box").click(function(){
-    $(this).fadeTo(500, 0.5);
-  });
+  // $(".red-box").click(function(){
+  //   $(this).fadeTo(500, 0.5);
+  // });
 
-  $(".red-box").click(); // can also trigger your own events
+  // $(".red-box").click(); // can also trigger your own events
   
+  // ADDING HOVER HANDLERS
+  // :hover
+  $("#btn-hover").hover(function(){
+    alert("button was hovered."); // alerts for both when you enter and leave element
+  });
+
+  $(".green-box").hover(function(){
+    $(this).text("I was hovered");
+  });
 });
