@@ -353,18 +353,40 @@ $(function() { // must put jquery inside this line
   // });
 
   // PASSING ADDITIONAL DATA TO EVENTS
-  $("#btn-click").click(
-  {
-    user: "Destiny",
-    domain: "destinyboone.com"
-  }, function(event){
-    greetUser(event.data);
+  // $("#btn-click").click(
+  // {
+  //   user: "Destiny",
+  //   domain: "destinyboone.com"
+  // }, function(event){
+  //   greetUser(event.data);
+  // });
+
+  // function greetUser(userdata){
+  //   username = userdata.user || "Anonymous"; // anon is the default value if no data
+  //   domain = userdata.domain || "example.com";
+
+  //   alert("Welcome back " + username + " from " + domain + "!");
+  // }
+
+  // CODING ACTIVITY: CREATING AN IMAGE GALLERY WITH LIGHTBOX PREVIEW
+  let galleryItems = $(".gallery").find("img");
+  galleryItems.css("width", "33%").css("opacity", "0.7");
+
+  galleryItems.mouseenter(function(){
+    $(this).stop().fadeTo(500, 1);
   });
 
-  function greetUser(userdata){
-    username = userdata.user || "Anonymous"; // anon is the default value if no data
-    domain = userdata.domain || "example.com";
+  galleryItems.mouseleave(function(){
+    $(this).stop().fadeTo(500, 0.7);
+  });
 
-    alert("Welcome back " + username + " from " + domain + "!");
-  }
+  galleryItems.click(function(){
+    let source = $(this).attr("src");
+    let image = $("<img>").attr("src", source).css("width", "100%");
+    $(".lightbox").empty().append(image).fadeIn(2000);
+  });
+
+  $(".lightbox").click(function(){
+    $(this).stop().fadeOut();
+  });
 });
