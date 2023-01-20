@@ -427,18 +427,30 @@ $(function() { // must put jquery inside this line
   // });
 
   // USING THE CHANGE EVENT
-  $("#checkbox").change(function(){
-    let isChecked = $(this).is(":checked"); // .prop("checked")
-    if(isChecked){
-      $(this).add("label[for='cb']").css("box-shadow", "0 0 4px #181");
+  // $("#checkbox").change(function(){
+  //   let isChecked = $(this).is(":checked"); // .prop("checked")
+  //   if(isChecked){
+  //     $(this).add("label[for='cb']").css("box-shadow", "0 0 4px #181");
+  //   }
+  //   else{
+  //     $(this).add("label[for='cb']").css("box-shadow", "0 0 4px #811");
+  //   }
+  // });
+
+  // $("#selection").change(function(){
+  //   let selectedOption = $(this).find(":selected").text();
+  //   alert(selectedOption);
+  // });
+
+  // HANDLING THE SUBMIT EVENT
+  $("#form").submit(function(event){
+    let textarea = $("#message");
+    if(textarea.val().trim() == ""){
+      textarea.css("box-shadow", "0 0 4px #811");
+      event.preventDefault(); // prevents submission
     }
     else{
-      $(this).add("label[for='cb']").css("box-shadow", "0 0 4px #811");
+      // form will submit
     }
-  });
-
-  $("#selection").change(function(){
-    let selectedOption = $(this).find(":selected").text();
-    alert(selectedOption);
   });
 });
