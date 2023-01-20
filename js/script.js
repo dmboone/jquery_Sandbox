@@ -443,14 +443,79 @@ $(function() { // must put jquery inside this line
   // });
 
   // HANDLING THE SUBMIT EVENT
+  // $("#form").submit(function(event){
+  //   let textarea = $("#message");
+  //   if(textarea.val().trim() == ""){
+  //     textarea.css("box-shadow", "0 0 4px #811");
+  //     event.preventDefault(); // prevents submission
+  //   }
+  //   else{
+  //     // form will submit
+  //   }
+  // });
+
+  // CODING ACTIVITY: COMPLETE FORM VALIDATION ON SUBMIT
   $("#form").submit(function(event){
-    let textarea = $("#message");
-    if(textarea.val().trim() == ""){
-      textarea.css("box-shadow", "0 0 4px #811");
-      event.preventDefault(); // prevents submission
-    }
-    else{
-      // form will submit
-    }
+    let name = $("#name").val();
+    let password = $("#password").val();
+    let message = $("#message").val();
+    let checked = $("#checkbox").is(":checked");
+
+    validateNameField(name, event);
+    validatePasswordField(password, event);
+    validateMessageField(message, event);
+    validateCheckboxField(checked, event);
   });
 });
+
+function validateNameField(name, event){
+  if(!isValidName(name)){
+    $("#name-feedback").text("Please enter at least two characters");
+    event.preventDefault();
+  }
+  else{
+    $("#name-feedback").text("");
+  }
+}
+
+function validatePasswordField(password, event){
+  if(!isValidPassword(password)){
+    $("#password-feedback").text("The password should have at least 6 characters and contain a nunber");
+    event.preventDefault();
+  }
+  else{
+    $("#password-feedback").text("");
+  }
+}
+
+function validateMessageField(message, event){
+  if(!isValidMessage(message)){
+    $("#message-feedback").text("Please enter a message");
+    event.preventDefault();
+  }
+  else{
+    $("#message-feedback").text("");
+  }
+}
+
+function validateCheckboxField(isChecked, event){
+  if(!isChecked){
+    $("#checkbox-feedback").text("Please agree to this");
+    event.preventDefault();
+  }
+  else{
+    $("#checkbox-feedback").text("");
+  }
+}
+
+function isValidName(name){
+  return name.length >= 2;
+}
+
+function isValidPassword(password){
+  return password.length >= 6 && /\d/.test(password);
+}
+
+function isValidMessage(message){
+  return message.trim() != "";
+}
