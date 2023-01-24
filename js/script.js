@@ -476,12 +476,33 @@ $(function() { // must put jquery inside this line
 
   // FETCHING A SERVER FILE WITH JQUERY
   // $.load()
-  $("#code").load("js/script.js");
-  $("#code").load("js/script.js", function(response, status){
-    if(status == "error"){
-      alert("Could not find file");
-    }
-    console.log(response);
+  // $("#code").load("js/script.js");
+  // $("#code").load("js/script.js", function(response, status){
+  //   if(status == "error"){
+  //     alert("Could not find file");
+  //   }
+  //   console.log(response);
+  // });
+
+  // RETRIEVING FLICKR IMAGES THROUGH THE FLICKR API(+UNDERSTANDING JSON)
+  // $.getJSON()
+  let flickrApiUrl = "https://www.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
+  $.getJSON(flickrApiUrl, { // asynchronous call
+    tags: "sun, beach",
+    tagmode: "any",
+    format: "json"
+  }).done(function(data){ // event handler for completed request and successful
+    console.log(data);
+    $.each(data.items, function(index, value){
+      console.log(value);
+      $("<img>").attr("src", value.media.m).appendTo("#flickr");
+
+      if(index == 4){ // limits to 5 images
+        return false; // ends the each call early
+      }
+    });
+  }).fail(function(){ // event handler for completed request but failed
+    alert("Ajax call failed.")
   });
 });
 
