@@ -484,25 +484,44 @@ $(function() { // must put jquery inside this line
   //   console.log(response);
   // });
 
-  // RETRIEVING FLICKR IMAGES THROUGH THE FLICKR API(+UNDERSTANDING JSON)
+  // CODING ACTIVITY: RETRIEVING FLICKR IMAGES THROUGH THE FLICKR API(+UNDERSTANDING JSON)
   // $.getJSON()
-  let flickrApiUrl = "https://www.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
-  $.getJSON(flickrApiUrl, { // asynchronous call
-    tags: "sun, beach",
-    tagmode: "any",
-    format: "json"
-  }).done(function(data){ // event handler for completed request and successful
-    console.log(data);
-    $.each(data.items, function(index, value){
-      console.log(value);
-      $("<img>").attr("src", value.media.m).appendTo("#flickr");
+  // let flickrApiUrl = "https://www.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
+  // $.getJSON(flickrApiUrl, { // asynchronous call
+  //   tags: "sun, beach",
+  //   tagmode: "any",
+  //   format: "json"
+  // }).done(function(data){ // event handler for completed request and successful
+  //   console.log(data);
+  //   $.each(data.items, function(index, value){
+  //     console.log(value);
+  //     $("<img>").attr("src", value.media.m).appendTo("#flickr");
 
-      if(index == 4){ // limits to 5 images
-        return false; // ends the each call early
-      }
+  //     if(index == 4){ // limits to 5 images
+  //       return false; // ends the each call early
+  //     }
+  //   });
+  // }).fail(function(){ // event handler for completed request but failed
+  //   alert("Ajax call failed.")
+  // });
+
+  // CODING ACTIVITY: RETRIEVING POKEMON DATA FROM THE POKEAPI
+  let pokeapiUrl = "https://pokeapi.co/api/v2/generation/1";
+
+  $.getJSON(pokeapiUrl)
+  .done(function(data){
+    console.log(data);
+    $.each(data.pokemon_species, function(index, pokemon){
+      let name = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1); // capitalizing the first letter
+      let par = $("<p>").html("Pokemon species no. " + (index+1) + " is " + name);
+      par.appendTo("#pokemon");
     });
-  }).fail(function(){ // event handler for completed request but failed
-    alert("Ajax call failed.")
+  })
+  .fail(function(){
+    console.log("Request to Pokeapi failed.");
+  })
+  .always(function(){ // this will always run regardless of successful or failed call
+    console.log("Pokemon is awesome.")
   });
 });
 
